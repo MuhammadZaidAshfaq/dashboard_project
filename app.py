@@ -47,7 +47,7 @@ st.markdown("""
 # ─────────────────────────────────────────────────────────────────────────────
 @st.cache_data
 def get_data():
-    raw = load_data('data/SMSSpamCollection')
+    raw = load_data()
     return clean_and_engineer(raw)
 
 df_full = get_data()
