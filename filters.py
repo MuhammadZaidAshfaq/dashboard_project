@@ -13,16 +13,16 @@ import re
 # LOAD & CLEAN
 # ─────────────────────────────────────────────────────────────────────────────
 
-def load_data(filepath='data/SMSSpamCollection'):
-    """Load the SMS Spam Collection dataset. DO NOT rename the file."""
-    df = pd.read_csv(
-        filepath,
-        sep='\t',
-        header=None,
-        names=['label', 'message'],
-        encoding='utf-8'
-    )
+def load_data():
+    import os
+    import pandas as pd
+
+    BASE_DIR = os.path.dirname(__file__)
+    file_path = os.path.join(BASE_DIR, "data", "SMSSpamCollection")
+
+    df = pd.read_csv(file_path, encoding="utf-8")
     return df
+   
 
 
 def clean_and_engineer(df):
